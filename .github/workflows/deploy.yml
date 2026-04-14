@@ -1,0 +1,47 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and push frontend
+      uses: docker/build-push-action@v5
+      with:
+        context: ./frontend
+        push: true
+        tags: habi005/voting-frontend:latest
+
+    - name: Build and push auth service
+      uses: docker/build-push-action@v5
+      with:
+        context: ./auth-service
+        push: true
+        tags: habi005/voting-auth:latest
+
+    - name: Build and push voting service
+      uses: docker/build-push-action@v5
+      with:
+        context: ./voting-service
+        push: true
+        tags: habi005/voting-service:latest
+
+    - name: Build and push analytics service
+      uses: docker/build-push-action@v5
+      with:
+        context: ./analytics-service
+        push: true
+        tags: habi005/voting-analytics:latest
