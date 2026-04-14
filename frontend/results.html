@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoteApp — Live Results</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="nav-left">
+      <div class="logo-icon small">V</div>
+      <span class="nav-brand">VoteApp</span>
+    </div>
+    <div class="nav-right">
+      <span id="nav-user" class="nav-user"></span>
+      <a href="vote.html" class="btn-ghost">Vote</a>
+      <button class="btn-ghost" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="page-content">
+    <div class="page-header">
+      <h2>Live Results</h2>
+      <p id="refresh-status">Auto-refreshing every 5 seconds</p>
+    </div>
+
+    <div class="results-card">
+      <div id="results-container"></div>
+      <div id="total-votes" class="total-label"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

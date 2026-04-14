@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoteApp</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="auth-bg">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="logo-icon">V</div>
+        <h1>VoteApp</h1>
+        <p>Secure Online Voting System</p>
+      </div>
+
+      <div class="tab-bar">
+        <button class="tab active" id="tab-login" onclick="switchTab('login')">Login</button>
+        <button class="tab" id="tab-register" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-form">
+        <div id="login-error" class="alert alert-error hidden"></div>
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="login-username" placeholder="Enter your username"/>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password"/>
+        </div>
+        <button class="btn-primary" onclick="handleLogin()">
+          <span>Sign In</span>
+        </button>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register-form" class="hidden">
+        <div id="register-error" class="alert alert-error hidden"></div>
+        <div id="register-success" class="alert alert-success hidden"></div>
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="reg-username" placeholder="Choose a username"/>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="reg-password" placeholder="Choose a password"/>
+        </div>
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input type="password" id="reg-confirm" placeholder="Repeat your password"/>
+        </div>
+        <button class="btn-primary" onclick="handleRegister()">
+          <span>Create Account</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
